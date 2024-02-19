@@ -21,6 +21,9 @@ return {
     "rcarriga/nvim-dap-ui",
     config = function()
       local dap, dapui = require("dap"), require("dapui")
+
+      require("dapui").setup()
+
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()
       end
