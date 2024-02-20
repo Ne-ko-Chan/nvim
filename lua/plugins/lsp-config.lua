@@ -25,6 +25,9 @@ return {
       lspconfig.clangd.setup({
         capabilities = capabilities,
       })
+      lspconfig.volar.setup({
+        capabilities = capabilities,
+      })
       lspconfig.texlab.setup({
         capabilities = capabilities,
       })

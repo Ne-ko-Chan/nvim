@@ -10,6 +10,9 @@ return {
         --JS
         null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.formatting.prettier,
+
+        --C++
+        null_ls.builtins.formatting.clang_format,
       },
     })
 

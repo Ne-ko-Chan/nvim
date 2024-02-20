@@ -1,9 +1,13 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+    },
     config = function()
-      local dap = require("dap")
+      local dap, dapui = require("dap"), require("dapui")
 
+      --Kemaps
       vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, {})
       vim.keymap.set("n", "<F5>", dap.continue, {})
       vim.keymap.set("n", "<F10>", function()
@@ -15,15 +19,9 @@ return {
       vim.keymap.set("n", "<F12>", function()
         dap.step_out()
       end)
-    end,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    config = function()
-      local dap, dapui = require("dap"), require("dapui")
 
+      --dapui setup
       require("dapui").setup()
-
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()
       end
@@ -36,6 +34,27 @@ return {
       dap.listeners.before.event_exited.dapui_config = function()
         dapui.close()
       end
+
+      --gdb configuration for c, cpp, rust
+      dap.adapters.gdb = {
+        type = "executable",
+        command = "gdb",
+        args = { "-i", "dap" },
+      }
+      dap.configurations.c = {
+        {
+          name = "Launch",
+          type = "gdb",
+          request = "launch",
+          program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          end,
+          cwd = "${workspaceFolder}",
+          stopAtBeginningOfMainSubprogram = false,
+        },
+      }
+      dap.configurations.cpp = dap.configurations.c
+      dap.configurations.rust = dap.configurations.c
     end,
   },
 }
