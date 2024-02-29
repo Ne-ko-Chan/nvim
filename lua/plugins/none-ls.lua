@@ -8,7 +8,7 @@ return {
         null_ls.builtins.formatting.stylua,
 
         --JS
-        null_ls.builtins.diagnostics.eslint_d,
+        --null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.formatting.prettier,
 
         --C++

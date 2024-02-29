@@ -37,24 +37,28 @@ return {
 
       --gdb configuration for c, cpp, rust
       dap.adapters.gdb = {
+        id = "gdb",
         type = "executable",
         command = "gdb",
-        args = { "-i", "dap" },
+        args = { "--quiet", "--interpreter=dap" },
       }
-      dap.configurations.c = {
+
+      dap.configurations.cpp = {
         {
-          name = "Launch",
+          name = "Run executable (GDB)",
           type = "gdb",
           request = "launch",
           program = function()
-            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            local path = vim.fn.input({
+              prompt = "Path to executable: ",
+              default = vim.fn.getcwd() .. "/",
+              completion = "file",
+            })
+
+            return (path and path ~= "") and path or dap.ABORT
           end,
-          cwd = "${workspaceFolder}",
-          stopAtBeginningOfMainSubprogram = false,
         },
       }
-      dap.configurations.cpp = dap.configurations.c
-      dap.configurations.rust = dap.configurations.c
     end,
   },
 }
