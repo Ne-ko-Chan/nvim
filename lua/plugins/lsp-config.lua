@@ -28,9 +28,9 @@ return {
       lspconfig.volar.setup({
         capabilities = capabilities,
       })
-      lspconfig.texlab.setup({
-        capabilities = capabilities,
-      })
+      --lspconfig.texlab.setup({
+        --capabilities = capabilities,
+      --})
       lspconfig.tsserver.setup({
         capabilities = capabilities,
       })
