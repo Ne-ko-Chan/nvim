@@ -19,6 +19,7 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      capabilities.offsetEncoding = "utf-8"
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
       })
