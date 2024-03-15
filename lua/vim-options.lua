@@ -4,12 +4,16 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set nu")
 vim.cmd("set rnu")
-vim.cmd("set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz")
+--vim.cmd("set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz")
+vim.cmd("set keymap=russian-jcukenwin")
+vim.cmd("set iminsert=0")
+vim.cmd("set imsearch=0")
 
 vim.g.mapleader = " "
 
 local opt = vim.opt
 
+opt.spelllang = {"ru_yo", "en_us"}
 opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
