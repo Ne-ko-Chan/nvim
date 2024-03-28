@@ -8,7 +8,7 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    lazy =false,
+    lazy = false,
     opts = {
       auto_install = true,
     },
@@ -29,9 +29,9 @@ return {
       lspconfig.volar.setup({
         capabilities = capabilities,
       })
-      --lspconfig.texlab.setup({
-        --capabilities = capabilities,
-      --})
+      lspconfig.pyright.setup({
+        capabilities = capabilities,
+      })
       lspconfig.tsserver.setup({
         capabilities = capabilities,
       })
@@ -45,6 +45,7 @@ return {
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+      vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, {})
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
     end,
