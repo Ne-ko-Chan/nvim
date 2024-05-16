@@ -6,6 +6,7 @@ return {
       ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "html", "css" },
       auto_install = true,
       ignore_install = { "tex", "latex" },
+      disable = { "tex", "latex" },
       highlight = { enable = true, disable = { "tex", "latex" } },
       indent = { enable = true },
     })

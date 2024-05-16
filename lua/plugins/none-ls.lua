@@ -13,6 +13,12 @@ return {
 
         --C++
         null_ls.builtins.formatting.clang_format,
+
+        --Go
+        null_ls.builtins.formatting.golines,
+
+        --Python
+        null_ls.builtins.formatting.black,
       },
     })
 
