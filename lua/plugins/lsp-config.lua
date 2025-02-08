@@ -23,6 +23,9 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
       })
+      lspconfig.templ.setup({
+        capabilities = capabilities,
+      })
       lspconfig.gopls.setup({
         capabilities = capabilities,
       })
@@ -35,13 +38,19 @@ return {
       lspconfig.pyright.setup({
         capabilities = capabilities,
       })
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
       })
       lspconfig.html.setup({
         capabilities = capabilities,
       })
       lspconfig.cssls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.jdtls.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.sqlls.setup({
         capabilities = capabilities,
       })
 
